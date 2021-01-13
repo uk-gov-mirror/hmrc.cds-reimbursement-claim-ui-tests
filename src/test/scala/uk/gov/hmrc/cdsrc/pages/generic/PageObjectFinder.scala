@@ -30,7 +30,7 @@ object PageObjectFinder extends BasePage {
 
   private val files = {
     val directories = Seq(
-      file("src/test/scala/uk/gov/hmrc/test/ui/pages/")
+      file("src/test/scala/uk/gov/hmrc/cdsrc/pages/")
     )
 
     val fileList: File => List[File] = f => FileUtils
