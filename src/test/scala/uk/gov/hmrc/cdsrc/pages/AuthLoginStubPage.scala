@@ -16,17 +16,28 @@
 
 package uk.gov.hmrc.cdsrc.pages
 
+import org.openqa.selenium.By
 import uk.gov.hmrc.cdsrc.conf.TestConfiguration
 
-object ExamplePage extends BasePage {
+object AuthLoginStubPage extends BasePage {
 
   override val url: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
-  override val title = "Example title"
+  override val title = "Authority Wizard"
 
-  override def expectedPageErrorTitle: Option[String] = Some("Example error title")
+  override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Example title")
+  override def expectedPageTitle: Option[String] = Some("Authority Wizard")
 
   override def expectedPageHeader: Option[String] = Some("Example header")
+
+  def enterRedirectURL(url: String): Unit = {
+    driver.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
+  }
+
+  def login(eKey: String, IDName: String, IDValue: String): Unit = {
+    driver.findElement(By.cssSelector("#js-enrolments-table > tbody > tr:nth-child(2) > td:nth-child(1) > input[type=text]")).sendKeys(eKey)
+    driver.findElement(By.cssSelector("#input-0-0-name")).sendKeys(IDName)
+    driver.findElement(By.cssSelector("#input-0-0-value")).sendKeys(IDValue)
+  }
 
 }
