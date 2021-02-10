@@ -27,6 +27,10 @@ trait BrowserDriver extends LazyLogging {
     s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
   )
 
+  if (!Option(System.getProperty("browser")).exists(_.length > 0)) {
+    System.setProperty("browser", "chrome")
+  }
+
   implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
 
   val debug: Boolean = sys.props.getOrElse("drivernotquit", "false").toBoolean
@@ -34,4 +38,5 @@ trait BrowserDriver extends LazyLogging {
     sys.addShutdownHook {
       Try(driver.quit())
     }
+
 }
