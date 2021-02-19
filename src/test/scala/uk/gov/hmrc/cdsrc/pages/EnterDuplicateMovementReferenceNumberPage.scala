@@ -18,19 +18,15 @@ package uk.gov.hmrc.cdsrc.pages
 
 import uk.gov.hmrc.cdsrc.conf.TestConfiguration
 
-object CheckAnswersAcceptSendPage extends BasePage {
+object EnterDuplicateMovementReferenceNumberPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("cds-frontend") + "/check-answers-accept-send"
-  override val title = "Review your claim"
+  override val url: String = TestConfiguration.url("cds-frontend") + "/enter-duplicate-movement-reference-number"
+  override val title = "What is your Movement Reference Number (MRN)?"
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Review your claim - Claim for reimbursement of import duties - GOV.UK")
+  override def expectedPageTitle: Option[String] = Some("What is your Movement Reference Number (MRN)? - Claim for reimbursement of import duties - GOV.UK")
 
-  override def expectedPageHeader: Option[String] = Some("Review your claim")
-
-  override def selectCheckBox(): Unit = {
-    click on cssSelector("#check-your-answers\\.declaration-0")
-  }
+  override def expectedPageHeader: Option[String] = Some("What is your Movement Reference Number (MRN)?")
 
 }

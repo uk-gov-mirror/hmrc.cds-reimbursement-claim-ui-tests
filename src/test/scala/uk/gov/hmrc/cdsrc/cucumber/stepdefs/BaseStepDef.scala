@@ -38,6 +38,10 @@ trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually wi
     PageObjectFinder.page(page.replaceAll(" ", "")).clickRadioButton(choice)
   }
 
+  When("""I select checkbox on {string}""") { (page: String) =>
+    PageObjectFinder.page(page.replaceAll(" ", "")).selectCheckBox()
+  }
+
   When("""I select {string} on {string}""") { (selection: String, page: String) =>
     PageObjectFinder.page(page.replaceAll(" ", "")).selectBoxes(selection.replaceAll(" to ", "_").split(","))
   }

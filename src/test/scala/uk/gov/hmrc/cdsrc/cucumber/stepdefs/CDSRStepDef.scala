@@ -16,18 +16,45 @@
 
 package uk.gov.hmrc.cdsrc.cucumber.stepdefs
 
-import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.Select
-import uk.gov.hmrc.cdsrc.pages.{AuthLoginStubPage, EnterMovementReferenceNumberPage, EnterReasonForClaimPage, StartPage, SupportingEvidenceScanProgressPage, SupportingEvidenceSelectSupportingEvidenceTypePage, SupportingEvidenceUploadSupportingEvidencePage}
+import uk.gov.hmrc.cdsrc.pages._
 
 class CDSRStepDef extends BaseStepDef {
-
-  Given("""Dummy""") { () =>
-  }
 
   When("""I enter {string} on {string}""") { (data: String, page: String) =>
     page match {
       case "Enter Movement Reference Number Page" => enterText("enter-movement-reference-number", data)
+      case "Enter Declaration Details Page" =>
+        data match {
+          case "" => EnterDeclarationDetailsPage.enterDetails()
+        }
+      case "Enter Claimant Details As Individual Page" =>
+        data match {
+          case "" => EnterClaimantDetailsAsIndividualPage.enterDetails()
+        }
+      case "Enter Claimant Details As Company Page" =>
+        data match {
+          case "" => EnterClaimantDetailsAsCompanyPage.enterDetails()
+        }
+      case "Enter Duplicate Declaration Details Page" =>
+        data match {
+          case "" => EnterDuplicateDeclarationDetailsPage.enterDetails()
+        }
+      case "Enter Commodity Details Page" =>
+        data match {
+          case _ => EnterCommodityDetailsPage.enterDetails(data)
+        }
+      case "Enter UK Duty Amounts Page" =>
+        data match {
+          case _ => EnterUKDutyAmountsPage.enterDetails()
+        }
+      case "Enter EU Duty Amounts Page" =>
+        data match {
+          case _ => EnterEUDutyAmountsPage.enterDetails()
+        }
+      case "Enter Bank Account Details Page" =>
+        data match {
+          case _ => EnterBankAccountDetailsPage.enterDetails()
+        }
     }
   }
 
@@ -41,6 +68,7 @@ class CDSRStepDef extends BaseStepDef {
     page match {
       case "Supporting Evidence Select Supporting Evidence Type Page" => SupportingEvidenceSelectSupportingEvidenceTypePage.dropdownSelect(selection)
       case "Enter Reason For Claim Page" => EnterReasonForClaimPage.dropdownSelect(selection)
+      case "Enter Reason For Claim And Basis Page" => EnterReasonForClaimAndBasisPage.dropdownSelect(selection)
     }
   }
 
