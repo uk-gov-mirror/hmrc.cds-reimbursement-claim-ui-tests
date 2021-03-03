@@ -16,45 +16,18 @@
 
 package uk.gov.hmrc.cdsrc.cucumber.stepdefs
 
+import org.openqa.selenium.By
 import uk.gov.hmrc.cdsrc.pages._
 
 class CDSRStepDef extends BaseStepDef {
 
-  When("""I enter {string} on {string}""") { (data: String, page: String) =>
-    page match {
-      case "Enter Movement Reference Number Page" => enterText("enter-movement-reference-number", data)
-      case "Enter Declaration Details Page" =>
-        data match {
-          case "" => EnterDeclarationDetailsPage.enterDetails()
-        }
-      case "Enter Claimant Details As Individual Page" =>
-        data match {
-          case "" => EnterClaimantDetailsAsIndividualPage.enterDetails()
-        }
-      case "Enter Claimant Details As Company Page" =>
-        data match {
-          case "" => EnterClaimantDetailsAsCompanyPage.enterDetails()
-        }
-      case "Enter Duplicate Declaration Details Page" =>
-        data match {
-          case "" => EnterDuplicateDeclarationDetailsPage.enterDetails()
-        }
-      case "Enter Commodity Details Page" =>
-        data match {
-          case _ => EnterCommodityDetailsPage.enterDetails(data)
-        }
-      case "Enter UK Duty Amounts Page" =>
-        data match {
-          case _ => EnterUKDutyAmountsPage.enterDetails()
-        }
-      case "Enter EU Duty Amounts Page" =>
-        data match {
-          case _ => EnterEUDutyAmountsPage.enterDetails()
-        }
-      case "Enter Bank Account Details Page" =>
-        data match {
-          case _ => EnterBankAccountDetailsPage.enterDetails()
-        }
+
+  Then("""I am presented with the {string} {string}""") { (text: String, duty: String) =>
+    val pageName = text.replaceAll(" ", "")
+    waitForPageHeader
+    pageName match {
+      case "EnterClaimPage" =>
+        driver.findElement(By cssSelector "#content > article > h1").getText should equal (s"Enter the claim amount for duty $duty")
     }
   }
 
@@ -64,24 +37,10 @@ class CDSRStepDef extends BaseStepDef {
     }
   }
 
-  When("""I select dropdown value {string} on {string}""") { (selection: String, page: String) =>
-    page match {
-      case "Supporting Evidence Select Supporting Evidence Type Page" => SupportingEvidenceSelectSupportingEvidenceTypePage.dropdownSelect(selection)
-      case "Enter Reason For Claim Page" => EnterReasonForClaimPage.dropdownSelect(selection)
-      case "Enter Reason For Claim And Basis Page" => EnterReasonForClaimAndBasisPage.dropdownSelect(selection)
-    }
-  }
-
   When("""I upload a {string} file on {string}""") { (file: String, page: String) =>
     //click on choose file & select file to send
     page match {
       case "Supporting Evidence Upload Supporting Evidence Page" => SupportingEvidenceUploadSupportingEvidencePage.uploadDocument(file)
-    }
-  }
-
-  And("""I click submit on {string}""") { (page: String) =>
-    page match {
-      case "Auth Login Stub Page" => click on xpath("//*[@id=\"inputForm\"]/p[1]/input")
     }
   }
 

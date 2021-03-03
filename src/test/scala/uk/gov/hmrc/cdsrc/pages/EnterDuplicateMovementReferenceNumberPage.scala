@@ -29,4 +29,7 @@ object EnterDuplicateMovementReferenceNumberPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("What is your Movement Reference Number (MRN)?")
 
+  override def enterDetails(textToEnter: String) {
+    enterText("enter-movement-reference-number", textToEnter)
+  }
 }

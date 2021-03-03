@@ -108,7 +108,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def enterText(id: String, textToEnter: String): Unit = {
+    driver.findElement(By.id(id)).clear()
     driver.findElement(By.id(id)).sendKeys(textToEnter)
+  }
+
+  def enterDetails(data: String): Unit = {
+  }
+
+  def dropdownSelect(selection: String): Unit = {
   }
 
   def enableWelsh(): Unit = {
