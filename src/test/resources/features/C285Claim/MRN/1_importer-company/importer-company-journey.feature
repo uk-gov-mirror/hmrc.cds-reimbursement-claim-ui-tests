@@ -1,9 +1,9 @@
 @Regression
 
-Feature:  C285 - MRN - importer-company
+Feature: C285 - MRN - importer-company
 
   @test
-  Scenario: User is a CDS Trader - happy path (mrn) - duplicate mrn
+  Scenario: User is a CDS Trader - happy path (mrn) - duplicate mrn - sorry there is a problem with the service page
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-CUS-ORG", ID Name "EORINumber" and ID Value "GB123456789012345" on "Auth Login Stub Page"
@@ -65,6 +65,7 @@ Feature:  C285 - MRN - importer-company
     When I click continue on "Supporting Evidence Check Your Answers Page"
     Then I am presented with the "Check Answers Accept Send Page"
     And I click continue on "Check Answers Accept Send Page"
+    Then I am presented with the "Check If Claim Was Sent Page"
 
   @test @a11y @ZAP
   Scenario: User is a CDS Trader - happy path (mrn - enter importer and declarant EORIs)
@@ -130,3 +131,4 @@ Feature:  C285 - MRN - importer-company
     When I click continue on "Supporting Evidence Check Your Answers Page"
     Then I am presented with the "Check Answers Accept Send Page"
     And I click continue on "Check Answers Accept Send Page"
+    Then I am presented with the "Check If Claim Was Sent Page"
