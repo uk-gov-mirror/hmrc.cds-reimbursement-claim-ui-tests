@@ -25,7 +25,7 @@ object NotSubscribedForCDSPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Not registered with CDS")
+  override def expectedPageTitle: Option[String] = Some("Not registered with CDS - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("You need a valid EORI number to use the Customs Declaration Service (CDS)")
 

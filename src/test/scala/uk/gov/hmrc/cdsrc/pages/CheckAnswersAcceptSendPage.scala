@@ -25,7 +25,7 @@ object CheckAnswersAcceptSendPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Check your answers before sending your application")
+  override def expectedPageTitle: Option[String] = Some("Check your answers before sending your application - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("Check your answers before sending your application")
 

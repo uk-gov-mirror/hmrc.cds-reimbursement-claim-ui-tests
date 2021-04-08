@@ -27,7 +27,7 @@ object EnterReasonForClaimAndBasisPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("generic.errorPrefix Select the reason and or basis for claim")
 
-  override def expectedPageTitle: Option[String] = Some("Select the reason and or basis for claim")
+  override def expectedPageTitle: Option[String] = Some("Select the reason and or basis for claim - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("Select the reason and or basis for claim")
 

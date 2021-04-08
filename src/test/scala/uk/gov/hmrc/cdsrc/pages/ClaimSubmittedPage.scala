@@ -25,7 +25,7 @@ object ClaimSubmittedPage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Claim submitted")
+  override def expectedPageTitle: Option[String] = Some("Claim submitted - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("Claim submitted")
 

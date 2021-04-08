@@ -25,7 +25,7 @@ object SupportingEvidenceUploadSupportingEvidencePage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("Error: Upload files to support your claim")
 
-  override def expectedPageTitle: Option[String] = Some("Upload files to support your claim")
+  override def expectedPageTitle: Option[String] = Some("Upload files to support your claim - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("Upload files to support your claim")
 

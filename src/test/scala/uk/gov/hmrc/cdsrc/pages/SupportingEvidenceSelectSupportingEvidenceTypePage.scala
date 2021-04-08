@@ -27,7 +27,7 @@ object SupportingEvidenceSelectSupportingEvidenceTypePage extends BasePage {
 
   override def expectedPageErrorTitle: Option[String] = Some("Select the description of the file you just uploaded")
 
-  override def expectedPageTitle: Option[String] = Some("Select the description of the file you just uploaded")
+  override def expectedPageTitle: Option[String] = Some("Select the description of the file you just uploaded - Claim for reimbursement of import duties - GOV.UK")
 
   override def expectedPageHeader: Option[String] = Some("Select the description of the file you just uploaded")
 

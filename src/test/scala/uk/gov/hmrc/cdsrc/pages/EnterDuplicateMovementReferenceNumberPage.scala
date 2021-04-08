@@ -21,13 +21,13 @@ import uk.gov.hmrc.cdsrc.conf.TestConfiguration
 object EnterDuplicateMovementReferenceNumberPage extends BasePage {
 
   override val url: String = TestConfiguration.url("cds-frontend") + "/enter-duplicate-movement-reference-number"
-  override val title = "What is your Movement Reference Number (MRN)?"
+  override val title = "What is your duplicated Movement Reference Number (MRN)?"
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("What is your Movement Reference Number (MRN)?")
+  override def expectedPageTitle: Option[String] = Some("What is your duplicated Movement Reference Number (MRN)? - Claim for reimbursement of import duties - GOV.UK")
 
-  override def expectedPageHeader: Option[String] = Some("What is your Movement Reference Number (MRN)?")
+  override def expectedPageHeader: Option[String] = Some("What is your duplicated Movement Reference Number (MRN)?")
 
   override def enterDetails(textToEnter: String) {
     enterText("enter-movement-reference-number", textToEnter)
