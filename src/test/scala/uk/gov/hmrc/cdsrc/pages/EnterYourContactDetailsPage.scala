@@ -40,9 +40,9 @@ object EnterYourContactDetailsPage extends BasePage {
     val postcode: String = "JO0 0HN"
     val country: String = "United Kingdom"
 
-    enterText("enter-claimant-details-importer-company.importer-company-name", companyName)
-    enterText("enter-claimant-details-importer-company.importer-email", emailAddress)
-    enterText("enter-claimant-details-importer-company.importer-phone-number", phoneNumber)
+    enterText("enter-your-contact-details.contact-name", companyName)
+    enterText("enter-your-contact-details.contact-email", emailAddress)
+    enterText("enter-your-contact-details.contact-phone-number", phoneNumber)
     enterText("nonUkAddress-line1", addressLine1)
     enterText("nonUkAddress-line2", addressLine2)
     enterText("nonUkAddress-line3", addressLine3)
