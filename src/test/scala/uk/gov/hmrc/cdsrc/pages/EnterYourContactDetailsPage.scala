@@ -18,16 +18,16 @@ package uk.gov.hmrc.cdsrc.pages
 
 import uk.gov.hmrc.cdsrc.conf.TestConfiguration
 
-object EnterClaimantDetailsAsCompanyPage extends BasePage {
+object EnterYourContactDetailsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("cds-frontend") + "/enter-claimant-details-as-company"
-  override val title = "Enter your claimant details as an importer company"
+  override val url: String = TestConfiguration.url("cds-frontend") + "/enter-your-contact-details"
+  override val title = "Enter your contact details"
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Enter your claimant details as an importer company")
+  override def expectedPageTitle: Option[String] = Some("Enter your contact details - Claim for reimbursement of import duties - GOV.UK")
 
-  override def expectedPageHeader: Option[String] = Some("Enter your claimant details as an importer company")
+  override def expectedPageHeader: Option[String] = Some("Enter your contact details")
 
   override def enterDetails(data: String): Unit = {
     val companyName: String = "Johnathon Smithson Co."
@@ -40,9 +40,9 @@ object EnterClaimantDetailsAsCompanyPage extends BasePage {
     val postcode: String = "JO0 0HN"
     val country: String = "United Kingdom"
 
-    enterText("enter-claimant-details-importer-company.importer-company-name", companyName)
-    enterText("enter-claimant-details-importer-company.importer-email", emailAddress)
-    enterText("enter-claimant-details-importer-company.importer-phone-number", phoneNumber)
+    enterText("enter-your-contact-details.contact-name", companyName)
+    enterText("enter-your-contact-details.contact-email", emailAddress)
+    enterText("enter-your-contact-details.contact-phone-number", phoneNumber)
     enterText("nonUkAddress-line1", addressLine1)
     enterText("nonUkAddress-line2", addressLine2)
     enterText("nonUkAddress-line3", addressLine3)

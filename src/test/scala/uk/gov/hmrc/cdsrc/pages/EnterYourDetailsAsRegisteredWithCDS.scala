@@ -18,21 +18,20 @@ package uk.gov.hmrc.cdsrc.pages
 
 import uk.gov.hmrc.cdsrc.conf.TestConfiguration
 
-object EnterClaimantDetailsAsIndividualPage extends BasePage {
+object EnterYourDetailsAsRegisteredWithCDS extends BasePage {
 
-  override val url: String = TestConfiguration.url("cds-frontend") + "/enter-claimant-details-as-individual"
-  override val title = "Enter your claimant details as an individual"
+  override val url: String = TestConfiguration.url("cds-frontend") + "/enter-your-details-as-registered-with-cds"
+  override val title = "Enter your details as registered with CDS"
 
   override def expectedPageErrorTitle: Option[String] = Some("")
 
-  override def expectedPageTitle: Option[String] = Some("Enter your claimant details as an individual")
+  override def expectedPageTitle: Option[String] = Some("Enter your details as registered with CDS - Claim for reimbursement of import duties - GOV.UK")
 
-  override def expectedPageHeader: Option[String] = Some("Enter your claimant details as an individual")
+  override def expectedPageHeader: Option[String] = Some("Enter your details as registered with CDS")
 
   override def enterDetails(data: String): Unit = {
     val fullName: String = "Johnathon Smithson"
     val emailAddress: String = "johnathonsmithson@email.com"
-    val phoneNumber: String = "01234567891"
     val addressLine1: String = "John Rd"
     val addressLine2: String = ""
     val addressLine3: String = ""
@@ -40,9 +39,8 @@ object EnterClaimantDetailsAsIndividualPage extends BasePage {
     val postcode: String = "JO0 0HN"
     val country: String = "United Kingdom"
 
-    enterText("enter-claimant-details-individual.individual-full-name", fullName)
-    enterText("enter-claimant-details-individual.individual-email", emailAddress)
-    enterText("enter-claimant-details-individual.individual-phone-number", phoneNumber)
+    enterText("enter-claimant-details-as-registered-with-cds.individual-full-name", fullName)
+    enterText("enter-claimant-details-as-registered-with-cds.individual-email", emailAddress)
     enterText("nonUkAddress-line1", addressLine1)
     enterText("nonUkAddress-line2", addressLine2)
     enterText("nonUkAddress-line3", addressLine3)
