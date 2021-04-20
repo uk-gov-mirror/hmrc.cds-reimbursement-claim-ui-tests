@@ -16,20 +16,9 @@
 
 package uk.gov.hmrc.cdsrc.cucumber.stepdefs
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.cdsrc.pages._
 
 class CDSRStepDef extends BaseStepDef {
-
-
-  Then("""I am presented with the {string} {string}""") { (text: String, duty: String) =>
-    val pageName = text.replaceAll(" ", "")
-    waitForPageHeader
-    pageName match {
-      case "EnterClaimPage" =>
-        driver.findElement(By cssSelector "#main-content > div > div > h1").getText should equal (s"Enter the claim amount for duty $duty")
-    }
-  }
 
   When("""I click continue if I'm on {string}""") { (page: String) =>
     page match {
@@ -51,7 +40,7 @@ class CDSRStepDef extends BaseStepDef {
   When("""I enter redirectURL on {string}""") { (page: String) =>
     page match {
       case "Auth Login Stub Page" =>
-        AuthLoginStubPage.enterRedirectURL("/claim-for-reimbursement-of-import-duties/start/claim-for-reimbursement")
+        AuthLoginStubPage.enterRedirectURL("http://localhost:7500/claim-for-reimbursement-of-import-duties/start/claim-for-reimbursement")
     }
   }
 
